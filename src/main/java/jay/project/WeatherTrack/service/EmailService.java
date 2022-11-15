@@ -18,12 +18,10 @@ public class EmailService {
     public String sendMail(EmailDetails details) {
         try {
             SimpleMailMessage mailMessage = new SimpleMailMessage();
-
             mailMessage.setFrom(sender);
             mailMessage.setTo(details.getRecipient());
             mailMessage.setText(details.getMsgBody());
             mailMessage.setSubject(details.getSubject());
-
             mailSender.send(mailMessage);
             return "Email Sent Successfully";
         } catch (Exception e) {
